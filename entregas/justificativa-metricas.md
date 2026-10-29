@@ -1,7 +1,7 @@
 # Justificativa das métricas — Dashboard 2
 
 **Tema:** Acidentes em rodovias federais brasileiras (2007–2020).  
-**Público-alvo geral:** gestores e equipes de segurança viária e planejamento (PRF, DNIT e secretarias estaduais), que precisam decidir onde e quando priorizar fiscalização e prevenção. Esse público aparece descrito no topo do Dashboard 2.  
+**Público-alvo geral:** gestores de segurança viária, analistas de dados e equipes de planejamento.  
 **Cuidados:** todos os indicadores respeitam os filtros; a base descreve acidentes registrados e não fornece volume de tráfego ou distância percorrida. Portanto, contagens não são medidas de risco.
 
 ## 1. Acidentes registrados
@@ -43,16 +43,3 @@
 - **Público-alvo:** analistas e gestores.
 - **Decisão apoiada:** identificar recortes que merecem investigação sobre severidade.
 - **O que comunica:** percentual *entre os acidentes registrados*, não o risco de morrer ao viajar.
-
-## Visuais do Dashboard 2 (além das métricas)
-
-Feitos em Altair com **seleção cruzada**: clicar numa UF filtra os outros três gráficos e os 5 KPIs acima deles (Shift + clique seleciona várias; clique duplo limpa). Todos também respeitam os filtros da sidebar (período, UF, classificação e intervalo).
-
-| Visual | Pergunta que responde | Decisão apoiada |
-|---|---|---|
-| Acidentes por UF (barras horizontais) | Onde se concentram os registros? | Escolher estados para aprofundar a análise |
-| Evolução anual dos acidentes (linha) | O volume subiu ou caiu entre 2007 e 2020? | Avaliar tendência e mudanças de registro ao longo do tempo |
-| Acidentes por classificação (barras) | Qual a proporção entre sem vítimas, feridos e fatais? | Dimensionar a gravidade do recorte escolhido |
-| % de acidentes com óbito por fase do dia (barras) | Acidentes à noite são proporcionalmente mais graves? | Priorizar ações de visibilidade/fiscalização noturna |
-
-**Observação sobre o período:** a queda a partir de 2015 pode refletir mudança na forma de registro da PRF, não apenas redução real de acidentes — por isso o gráfico deve ser lido junto com a EDA.

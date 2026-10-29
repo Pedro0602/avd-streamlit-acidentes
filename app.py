@@ -156,8 +156,7 @@ with tab1:
 
     with st.expander("Estatísticas descritivas e interpretação"):
         st.dataframe(filtrado[quant].describe().T.round(2), width="stretch")
-        st.caption("Correlação não implica causalidade. As variáveis são contagens por acidente, com forte assimetria "
-                   "(muitos zeros); por isso o Spearman é oferecido como alternativa ao Pearson. "
+        st.caption("Correlação não implica causalidade. Eventos raros e valores extremos foram mantidos nos indicadores. "
                    "Nos histogramas, a cauda rara (acima do percentil 99,5) fica agrupada na última barra (N+).")
 
     with st.expander("Estatísticas descritivas e interpretação"):
@@ -168,9 +167,8 @@ with tab1:
 # ----------------------------- Dashboard 2 -----------------------------
 with tab2:
     st.subheader("Indicadores de frequência e gravidade")
-    st.markdown("**Público-alvo:** gestores e equipes de segurança viária e planejamento (PRF, DNIT e "
-                "secretarias estaduais), que precisam decidir **onde** e **quando** priorizar fiscalização "
-                "e prevenção.")
+    # Público-alvo conforme entregas/justificativa-metricas.md
+    st.markdown("**Público-alvo:** gestores de segurança viária, analistas de dados e equipes de planejamento.")
     area_kpis = st.container()  # os KPIs são desenhados depois, já considerando o clique no gráfico
     st.markdown("**Clique em uma UF** para filtrar os KPIs e os outros gráficos "
                 "(Shift + clique seleciona várias; clique duplo limpa).")
@@ -258,7 +256,7 @@ with tab2:
                    "Não representa risco por quilômetro rodado.")
 
     st.markdown("**Interpretação**: contagens absolutas descrevem o volume observado, não a probabilidade "
-                "individual de acidente. A proporção de acidentes com óbito ajuda a comparar gravidade entre recortes.")
+                "individual de acidente.")
 
 with st.expander("🔎 Conferir registros e qualidade dos dados"):
     st.write(f"Linhas filtradas: {formatar(len(filtrado))} | Variáveis quantitativas disponíveis: {len(quant)}")
