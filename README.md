@@ -8,8 +8,6 @@ Dois dashboards interativos sobre os acidentes registrados pela PRF em rodovias 
 
 **Link do app (Aula 23):** https://avd-acidentes-rodovias.streamlit.app
 
-**Autor:** Pedro Henrique Martins Cavalcanti ([Pedro0602](https://github.com/Pedro0602))
-
 ## O que tem no app
 
 | Aba | Conteúdo |
