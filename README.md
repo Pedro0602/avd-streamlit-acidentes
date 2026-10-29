@@ -6,7 +6,7 @@ Dois dashboards interativos sobre os acidentes registrados pela PRF em rodovias 
 - **Dashboard 1** = correlação + distribuição das variáveis quantitativas
 - **Dashboard 2** = KPIs
 
-**Link do app (Aula 23):** _(preencher após o deploy)_
+**Link do app (Aula 23):** https://avd-acidentes-rodovias.streamlit.app
 
 **Autor:** Pedro Henrique Martins Cavalcanti ([Pedro0602](https://github.com/Pedro0602))
 
