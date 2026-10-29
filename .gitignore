@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.claude/
+
+# Segredos nunca vão para o Git
+.streamlit/secrets.toml
+
+# Base original (grande) e CSV tratado (~104 MB, acima do limite de 100 MB do GitHub).
+# O app usa data/clean/dataset.parquet, que É versionado.
+data/raw/
+data/clean/*.csv
