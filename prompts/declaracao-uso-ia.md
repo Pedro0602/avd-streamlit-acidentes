@@ -31,13 +31,12 @@
 
 **ChatGPT (Aulas 21 e 22):** pedidos para estruturar o `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma), montar os indicadores, documentar as métricas e fazer o rascunho da segunda aba.
 
-**Claude Code (Aula 23):** enviei os PDFs das Aulas 21 a 23 e os arquivos do projeto, com os pedidos:
+**Claude Code (Aula 23):** com a atividade já iniciada (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), enviei os PDFs das Aulas 21 a 23 e os arquivos do projeto. Pedi para seguir o passo a passo das aulas a partir do que eu já tinha feito e completar o que faltava. Também autorizei a ferramenta a executar as etapas técnicas (Git, GitHub e deploy) sem pedir confirmação a cada passo.
 
-> "preciso que vc faça oq ta se pedindo passo a passo, eu ja comecei"
-
-> "faca tudo pra mim sem precisar pedi permissão"
-
-Depois pedi para seguir o repositório-modelo da professora (`mfal-school/AVD-20262-pratica-streamlit`), conferir o checklist final da atividade e manter tudo dentro das regras de uso de IA.
+Ao longo da sessão, pedi para:
+- seguir o repositório-modelo da professora (`mfal-school/AVD-20262-pratica-streamlit`) e o `ROTEIRO.md`;
+- conferir o projeto contra o checklist final da atividade;
+- revisar a entrega segundo as regras de uso de IA, removendo o que a IA tinha escrito no meu lugar (ver "Rejeitado").
 
 ## O que foi aceito, modificado ou rejeitado e por quê
 
