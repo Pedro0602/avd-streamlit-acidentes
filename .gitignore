@@ -1,13 +1,26 @@
+# Ambiente virtual
 .venv/
+venv/
+
+# Cache Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.claude/
 
-# Segredos nunca vão para o Git
+# Segredos do Streamlit (nunca versionar)
 .streamlit/secrets.toml
 
-# Base original (grande) e CSV tratado (~104 MB, acima do limite de 100 MB do GitHub).
-# O app usa data/clean/dataset.parquet, que É versionado.
-data/raw/
+# Sistema / notebooks
+.DS_Store
+.ipynb_checkpoints/
+
+# Dados
+# raw: dado bruto, não vai para o Git (só o .gitkeep)
+data/raw/*
+!data/raw/.gitkeep
+# clean: o dado tratado vai para o Git em Parquet (data/clean/dataset.parquet, ~7 MB).
+# O CSV tratado tem ~104 MB, acima do limite de 100 MB por arquivo do GitHub.
 data/clean/*.csv
+
+# Ferramentas de IA (skills são symlinks para o venv; cada pessoa roda `streamlit skills`)
+.claude/
+.agents/skills/

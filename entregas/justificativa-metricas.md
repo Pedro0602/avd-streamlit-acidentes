@@ -46,7 +46,7 @@
 
 ## Visuais do Dashboard 2 (além das métricas)
 
-Feitos em Altair com **seleção cruzada**: clicar numa UF filtra os outros três gráficos (Shift + clique seleciona várias; clique duplo limpa). Todos também respeitam os filtros da sidebar (período, UF, classificação e intervalo).
+Feitos em Altair com **seleção cruzada**: clicar numa UF filtra os outros três gráficos e os 5 KPIs acima deles (Shift + clique seleciona várias; clique duplo limpa). Todos também respeitam os filtros da sidebar (período, UF, classificação e intervalo).
 
 | Visual | Pergunta que responde | Decisão apoiada |
 |---|---|---|

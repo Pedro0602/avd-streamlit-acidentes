@@ -1,23 +1,37 @@
-# Declaração de uso de inteligência artificial
+# Declaração de Uso de IA
 
-## Aulas 21 e 22
+**Nome:** Pedro Henrique Martins Cavalcanti
+**Data:** 29/10/2026
 
-**Ferramenta utilizada:** ChatGPT (OpenAI).
+## Ferramenta
 
-**Aplicação:** auxílio na estruturação do `app.py` em Streamlit, construção dos filtros, matriz de correlação, histograma, indicadores, documentação das métricas, identidade visual e rascunho da segunda aba.
+- **Aulas 21 e 22:** ChatGPT (OpenAI).
+- **Aula 23:** Claude Code (Anthropic, modelo Claude Opus 5.5), com a skill oficial `developing-with-streamlit`, que vem junto com o pacote `streamlit`.
 
-**Conteúdo aceito/adaptado:** a organização em sidebar e duas abas, uso de `st.cache_data`, seleção de variáveis, intervalo numérico e indicadores calculados dinamicamente a partir dos dados da EDA.
+## Prompt usado
 
-## Aula 23 (finalização e deploy)
+**Aulas 21 e 22 (ChatGPT):** pedidos para estruturar o `app.py` em Streamlit a partir do rascunho do layout (sidebar com filtros, matriz de correlação, histograma), propor KPIs para o Dashboard 2 e redigir a justificativa das métricas. O template de prompt preenchido para este projeto está em [layout-skeleton-prompt.md](layout-skeleton-prompt.md).
 
-**Ferramenta utilizada:** Claude Code (Anthropic), com a Agent Skill oficial `developing-with-streamlit` (instalada junto com o pacote `streamlit`).
+**Aula 23 (Claude Code):** enviei os PDFs das Aulas 21, 22 e 23 e os arquivos do projeto, com os pedidos:
 
-**Aplicação:**
-- preparo do dataset tratado: tratamento do texto `(null)` como ausente, extração do ano a partir de `id_unico`, remoção da coluna redundante `feridos` e exportação em Parquet para caber no GitHub e na memória do Streamlit Community Cloud;
-- célula nova no notebook para salvar os dataframes original e tratado;
-- Dashboard 2 com 4 visuais em Altair e seleção cruzada por UF, filtro por período e ajustes de API (`width="stretch"` no lugar de `use_container_width`, que foi descontinuado);
-- rascunho do Dashboard 1 (`entregas/rascunho-dashboard1.jpg`), atualização do rascunho do Dashboard 2, README e esta declaração.
+> "preciso que vc faça oq ta se pedindo passo a passo, eu ja comecei"
 
-**Validação realizada:** o app foi executado localmente com a base completa (1.851.865 registros). Foram testados: 0, 1 e 2+ variáveis na correlação; filtros por UF, classificação, período e intervalo; troca da variável de distribuição; e o clique em uma UF no Dashboard 2 filtrando os demais gráficos. Os KPIs foram conferidos com cálculos diretos em pandas.
+> "faca tudo pra mim sem precisar pedi permissão"
 
-**Motivo do uso:** acelerar o desenvolvimento técnico sem substituir a interpretação e a validação crítica dos resultados da análise.
+Depois pedi para conferir o repositório-modelo da professora (`mfal-school/AVD-20262-pratica-streamlit`) e ajustar o projeto ao `ROTEIRO.md`.
+
+## O que foi aceito, modificado ou rejeitado e por quê
+
+- **Aceito:**
+  - organização em sidebar + duas abas (`st.tabs`), uso de `@st.cache_data` em `src/data_loader.py` e indicadores recalculados a partir dos filtros;
+  - Dashboard 2 em Altair com seleção cruzada: clicar numa UF filtra os outros gráficos e, via `on_select="rerun"`, também os KPIs (exemplo 3 do `ALTAIR-CROSSFILTER.md`);
+  - tratamento do dataset: o texto `(null)` da base passa a valor ausente, o ano é extraído de `id_unico` e a coluna `feridos` é removida por ser sempre `feridos_leves + feridos_graves` (o app recalcula).
+- **Modificado:**
+  - o dado tratado é versionado em **Parquet** (`data/clean/dataset.parquet`, ~7 MB) e não em CSV: o CSV tratado tem ~104 MB, acima do limite de 100 MB do GitHub, e ocuparia ~600 MB de memória no Streamlit Cloud (limite de ~1 GB). O README do modelo prevê essa alternativa;
+  - o Dashboard 1 saiu do Plotly e passou para o Altair, que o roteiro indica como preferível;
+  - o histograma mostra uma barra por valor (as variáveis são contagens) e junta a cauda rara numa barra "N+", porque com faixas automáticas quase tudo caía na primeira barra.
+- **Rejeitado:**
+  - mandar os ~1,85 milhão de linhas direto para o Altair: os gráficos recebem tabelas já agregadas no pandas, para o app continuar rápido;
+  - colocar o Claude como coautor dos commits.
+
+**Validação:** o app foi executado com a base completa (1.851.865 registros). Testei 0, 1 e 2+ variáveis na correlação, Pearson e Spearman, filtros por período, UF, classificação e intervalo, e o clique numa UF no Dashboard 2. Os KPIs foram conferidos com cálculos diretos em pandas (ex.: PE = 74.044 acidentes, 6,3% com óbito).
