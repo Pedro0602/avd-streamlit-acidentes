@@ -5,6 +5,7 @@ Dois dashboards interativos construídos a partir da EDA de acidentes registrado
 
 **🔗 App publicado:** https://avd-app-acidentes-x7o2ytrcaxzkteoje7fy2t.streamlit.app/
 **📁 Repositório:** https://github.com/Pedro0602/avd-streamlit-acidentes
+**👤 Autor:** [Pedro0602](https://github.com/Pedro0602)
 
 ## O que tem no app
 
