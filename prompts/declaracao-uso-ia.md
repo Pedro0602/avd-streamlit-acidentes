@@ -1,7 +1,7 @@
 # Declaração de Uso de IA
 
 **Nome:** Pedro Henrique Martins Cavalcanti
-**Data:** 29/10/2026
+
 
 ## Ferramenta
 
