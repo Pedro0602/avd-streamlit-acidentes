@@ -3,7 +3,8 @@
 Projeto da disciplina **Análise e Visualização de Dados (AVD 2026.2)**, Aulas 21 a 23.
 Dois dashboards interativos construídos a partir da EDA de acidentes registrados pela PRF em rodovias federais brasileiras (2007–2020, ~1,85 milhão de registros).
 
-**🔗 App publicado:** COLOQUE_AQUI_O_LINK — ex.: `https://acidentes-rodovias.streamlit.app`
+**🔗 App publicado:** https://avd-app-acidentes-x7o2ytrcaxzkteoje7fy2t.streamlit.app/
+**📁 Repositório:** https://github.com/Pedro0602/avd-streamlit-acidentes
 
 ## O que tem no app
 
