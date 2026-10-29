@@ -17,6 +17,33 @@ def formatar(valor):
     return f"{valor:,.0f}".replace(",", ".") if pd.notna(valor) else "N/D"
 
 
+def histograma(serie, nome, p99=False):
+    """Histograma de uma variável de contagem: uma barra por valor (0, 1, 2...).
+
+    As contagens são muito assimétricas, então a cauda rara (acima do percentil 99,5) vira uma
+    última barra "N+". A contagem é feita no pandas e o Altair recebe só a tabela resumida.
+    """
+    valores = serie.dropna()
+    if p99:
+        valores = valores[valores <= valores.quantile(0.99)]
+    if valores.empty:
+        st.info(f"Sem valores válidos de {nome}.")
+        return
+    corte = int(max(10, np.ceil(valores.quantile(0.995))))
+    inteiros = valores.round().astype(int)
+    rotulos = inteiros.where(inteiros <= corte, corte + 1)
+    freq = rotulos.value_counts().sort_index().rename_axis("valor").reset_index(name="acidentes")
+    freq["faixa"] = freq["valor"].astype(str)
+    freq.loc[freq["valor"] > corte, "faixa"] = f"{corte + 1}+"
+    barras = alt.Chart(freq).mark_bar(color=LARANJA).encode(
+        x=alt.X("faixa:N", title=nome, sort=freq["faixa"].tolist(), axis=alt.Axis(labelAngle=0)),
+        y=alt.Y("acidentes:Q", title="Acidentes"),
+        tooltip=[alt.Tooltip("faixa:N", title=nome), alt.Tooltip("acidentes:Q", title="Acidentes", format=",.0f")],
+    )
+    st.altair_chart(barras.properties(height=200, title=nome), width="stretch", alt=f"Histograma da variável {nome}")
+    st.caption(f"média {valores.mean():.2f} • mediana {valores.median():.0f} • máx. {valores.max():.0f}")
+
+
 st.title("🚗 Acidentes em rodovias federais")
 st.caption("Análise e Visualização de Dados • Aulas 21 a 23 • EDA da base PRF/Kaggle (2007–2020)")
 
@@ -48,9 +75,10 @@ if "classificacao_acidente" in df:
         mascara &= df["classificacao_acidente"].isin(classes)
 
 st.sidebar.subheader("Dashboard 1")
-selecionadas = st.sidebar.multiselect("Variáveis para correlação", quant, default=quant[:4])
+selecionadas = st.sidebar.multiselect("Variáveis avaliadas (correlação e histogramas)", quant, default=quant[:4])
 metodo = st.sidebar.segmented_control("Método da correlação", ["Pearson", "Spearman"], default="Pearson")
-variavel = st.sidebar.selectbox("Variável para distribuição", quant)
+variavel = st.sidebar.selectbox("Variável do filtro de intervalo", quant,
+                                help="O slider abaixo exclui da análise os acidentes fora do intervalo escolhido.")
 serie = df.loc[mascara, variavel].dropna()
 if serie.empty:
     st.warning("Não há valores disponíveis com os filtros escolhidos.")
@@ -115,32 +143,22 @@ with tab1:
                                 alt=f"Mapa de calor da correlação de {metodo} entre as variáveis selecionadas")
 
     with col_dist:
-        st.markdown(f"**Distribuição de `{variavel}`**")
+        st.markdown("**Distribuição: um histograma por variável avaliada**")
         p99 = st.toggle("Limitar visualização ao percentil 99 (sem alterar indicadores)", value=False)
-        valores_var = filtrado[variavel].dropna()
-        if p99:
-            valores_var = valores_var[valores_var <= valores_var.quantile(0.99)]
-        if valores_var.empty:
-            st.info("Sem valores válidos para gerar o histograma.")
+        if not selecionadas:
+            st.info("Selecione ao menos uma variável para ver a distribuição.")
         else:
-            # As variáveis são contagens inteiras e muito assimétricas: uma barra por valor (0, 1, 2...)
-            # e a cauda rara (acima do percentil 99,5) junta numa última barra "N+".
-            # A contagem é feita no pandas e o Altair recebe só a tabela resumida.
-            corte = int(max(10, np.ceil(valores_var.quantile(0.995))))
-            inteiros = valores_var.round().astype(int)
-            rotulos = inteiros.where(inteiros <= corte, corte + 1)
-            freq = rotulos.value_counts().sort_index().rename_axis("valor").reset_index(name="acidentes")
-            freq["faixa"] = freq["valor"].astype(str)
-            freq.loc[freq["valor"] > corte, "faixa"] = f"{corte + 1}+"
-            barras = alt.Chart(freq).mark_bar(color=LARANJA).encode(
-                x=alt.X("faixa:N", title=variavel, sort=freq["faixa"].tolist(), axis=alt.Axis(labelAngle=0)),
-                y=alt.Y("acidentes:Q", title="Acidentes"),
-                tooltip=[alt.Tooltip("faixa:N", title=variavel),
-                         alt.Tooltip("acidentes:Q", title="Acidentes", format=",.0f")])
-            st.altair_chart(barras.properties(height=420), width="stretch",
-                            alt=f"Histograma da variável {variavel}")
-            st.caption(f"Média {valores_var.mean():.2f} • mediana {valores_var.median():.0f} • "
-                       f"máximo {valores_var.max():.0f}")
+            # Grade de 2 colunas, um histograma por variável selecionada (cada um com a sua escala)
+            for inicio in range(0, len(selecionadas), 2):
+                for coluna, var in zip(st.columns(2), selecionadas[inicio:inicio + 2]):
+                    with coluna:
+                        histograma(filtrado[var], var, p99)
+
+    with st.expander("Estatísticas descritivas e interpretação"):
+        st.dataframe(filtrado[quant].describe().T.round(2), width="stretch")
+        st.caption("Correlação não implica causalidade. As variáveis são contagens por acidente, com forte assimetria "
+                   "(muitos zeros); por isso o Spearman é oferecido como alternativa ao Pearson. "
+                   "Nos histogramas, a cauda rara (acima do percentil 99,5) fica agrupada na última barra (N+).")
 
     with st.expander("Estatísticas descritivas e interpretação"):
         st.dataframe(filtrado[quant].describe().T.round(2), width="stretch")
@@ -150,6 +168,9 @@ with tab1:
 # ----------------------------- Dashboard 2 -----------------------------
 with tab2:
     st.subheader("Indicadores de frequência e gravidade")
+    st.markdown("**Público-alvo:** gestores e equipes de segurança viária e planejamento (PRF, DNIT e "
+                "secretarias estaduais), que precisam decidir **onde** e **quando** priorizar fiscalização "
+                "e prevenção.")
     area_kpis = st.container()  # os KPIs são desenhados depois, já considerando o clique no gráfico
     st.markdown("**Clique em uma UF** para filtrar os KPIs e os outros gráficos "
                 "(Shift + clique seleciona várias; clique duplo limpa).")

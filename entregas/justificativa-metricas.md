@@ -1,7 +1,7 @@
 # Justificativa das métricas — Dashboard 2
 
 **Tema:** Acidentes em rodovias federais brasileiras (2007–2020).  
-**Público-alvo geral:** gestores de segurança viária, analistas de dados e equipes de planejamento.  
+**Público-alvo geral:** gestores e equipes de segurança viária e planejamento (PRF, DNIT e secretarias estaduais), que precisam decidir onde e quando priorizar fiscalização e prevenção. Esse público aparece descrito no topo do Dashboard 2.  
 **Cuidados:** todos os indicadores respeitam os filtros; a base descreve acidentes registrados e não fornece volume de tráfego ou distância percorrida. Portanto, contagens não são medidas de risco.
 
 ## 1. Acidentes registrados
