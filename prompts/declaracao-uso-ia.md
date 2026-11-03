@@ -31,7 +31,7 @@
 
 **ChatGPT (Aulas 21 e 22):** pedidos para estruturar o `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma), montar os indicadores, documentar as métricas e fazer o rascunho da segunda aba.
 
-**Claude Code (Aula 23):** com a atividade já iniciada (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), pedi ajuda para reorganizar e completar o código do app seguindo o que a disciplina pedia, e para fazer as etapas de publicação. Autorizei a ferramenta a executar as etapas técnicas (Git, GitHub e deploy) sem pedir confirmação a cada passo.
+**Claude Code (Aula 23):** com a atividade já iniciada (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), pedi ajuda para reorganizar e completar o código do app seguindo o que a disciplina pedia, e para fazer as etapas de publicação.
 
 Ao longo da sessão, pedi para:
 - seguir o repositório-modelo da professora (`mfal-school/AVD-20262-pratica-streamlit`) e o `ROTEIRO.md`;
