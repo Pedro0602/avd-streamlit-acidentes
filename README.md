@@ -1,12 +1,5 @@
 # 🚗 Acidentes em rodovias federais — Dashboards em Streamlit
 
-Projeto das Aulas 21, 22 e 23 de **Análise e Visualização de Dados** (CESAR School, 2026.2), feito a partir do repositório-modelo [mfal-school/AVD-20262-pratica-streamlit](https://github.com/mfal-school/AVD-20262-pratica-streamlit).
-Dois dashboards interativos sobre os acidentes registrados pela PRF em rodovias federais brasileiras (2007–2020, ~1,85 milhão de registros), construídos a partir da EDA da Aula 11:
-
-- **Dashboard 1** = correlação + distribuição das variáveis quantitativas
-- **Dashboard 2** = KPIs
-
-**Link do app (Aula 23):** https://avd-acidentes-rodovias.streamlit.app
 
 ## O que tem no app
 
