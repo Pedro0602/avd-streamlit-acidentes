@@ -3,8 +3,7 @@
 
 ## Ferramenta
 
-| Etapa | Ferramenta |
-|---|---|
+
 | ChatGPT (OpenAI) |
  (| Claude Code ) |
 
