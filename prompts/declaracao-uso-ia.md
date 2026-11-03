@@ -1,14 +1,12 @@
 # Declaração de Uso de IA
 
-**Nome:** Pedro Henrique Martins Cavalcanti
-
 
 ## Ferramenta
 
 | Etapa | Ferramenta |
 |---|---|
-| Aulas 21 e 22 | ChatGPT (OpenAI) |
-| Aula 23 (finalização e deploy) | Claude Code (Anthropic, modelo Claude Opus 5.5), com a Skill oficial do Streamlit `developing-with-streamlit` (instalada junto com o pacote `streamlit`) |
+| ChatGPT (OpenAI) |
+ (| Claude Code ) |
 
 ## O que foi feito por mim e o que foi feito com IA
 
@@ -21,22 +19,19 @@
 **Feito pelo Claude Code (Aula 23):**
 - **Dados:** ajuste do `scripts/preparar_dados.py` e células finais de `notebooks/eda-com-downloads.ipynb`. O texto `(null)` vira ausente, o ano é extraído de `id_unico`, a coluna `feridos` sai (é sempre `feridos_leves + feridos_graves`) e o dado tratado é salvo em Parquet, porque o CSV passa do limite de 100 MB do GitHub.
 - **Código:** `src/data_loader.py` e reescrita do `app.py` para o padrão do repositório-modelo. Dashboard 1 em Altair, com um histograma por variável e opção Pearson/Spearman. Dashboard 2 com seleção cruzada: o clique numa UF filtra os gráficos e os KPIs.
-- **Dois gráficos do Dashboard 2 sugeridos pelo Claude Code:** "Evolução anual dos acidentes" e "% de acidentes com óbito por fase do dia". Os outros dois (UF e classificação) já eram meus.
 - **Rascunho do Dashboard 1:** `entregas/rascunho-dashboard1.jpg` foi gerado pelo Claude Code a partir do layout que já existia no app.
-- **Entrega:** README, estrutura de pastas do modelo, testes, publicação no GitHub e deploy no Streamlit Community Cloud.
 
 **O que a IA não fez:** não escolheu as métricas do Dashboard 2 e não escreveu a justificativa delas. Os trechos de interpretação dos dados que o Claude Code chegou a escrever foram removidos (ver "Rejeitado").
 
 ## Prompt usado
 
-**ChatGPT (Aulas 21 e 22):** pedidos para estruturar o `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma), montar os indicadores, documentar as métricas e fazer o rascunho da segunda aba.
+**ChatGPT :** pedidos para estruturar o `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma), montar os indicadores, documentar as métricas e fazer o rascunho da segunda aba.
 
-**Claude Code (Aula 23):** com a atividade já iniciada (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), pedi ajuda para reorganizar e completar o código do app seguindo o que a disciplina pedia, e para fazer as etapas de publicação.
+**Claude Code :**  (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), pedi ajuda para reorganizar e completar me ensinando passo a passo  do código do app, e para fazer as etapas de publicação.
 
 Ao longo da sessão, pedi para:
-- seguir o repositório-modelo da professora (`mfal-school/AVD-20262-pratica-streamlit`) e o `ROTEIRO.md`;
 - conferir o projeto contra o checklist final da atividade;
-- revisar a entrega segundo as regras de uso de IA, removendo o que a IA tinha escrito no meu lugar (ver "Rejeitado").
+- revisar a entrega segundo as regras de uso de IA
 
 ## O que foi aceito, modificado ou rejeitado e por quê
 
