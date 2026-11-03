@@ -1,26 +1,6 @@
 # entregas/
 
-Artefatos de entrega que não são sobre uso de IA (isso fica em [`prompts/`](../prompts)). Cada arquivo tem uma função específica na correção. Os rascunhos aceitam `.jpg` ou `.png`. Tudo desta pasta, incluindo as entregas do Dashboard 2 (rascunho + justificativa), deve estar pronto até a Aula 22; a Aula 23 é para finalizar a implementação, fazer o deploy e os ajustes finais.
 
-| Arquivo                      | Quando    | O que é                                                                                      |
-|-------------------------------|-----------|-----------------------------------------------------------------------------------------------|
-| `rascunho-dashboard1.jpg`/`.png`     | Aula 21   | Foto do rascunho do layout do Dashboard 1, feito antes de codar                               |
-| `rascunho-dashboard2.jpg`/`.png`     | Aula 22   | Mesma ideia, para o Dashboard 2 — desenhado só depois de definir widgets, variáveis e métricas |
-| `justificativa-metricas.md`   | Aula 22   | Por que cada métrica/KPI do Dashboard 2 foi escolhida e o que ela comunica ao público-alvo     |
-
-## Checklist — Aula 21
-
-- [ ] `rascunho-dashboard1.jpg`/`.png`
-
-## Checklist — Aula 22
-
-- [ ] `rascunho-dashboard2.jpg`/`.png`
-- [ ] `justificativa-metricas.md` preenchido (não só criado vazio)
-
-## Checklist — entrega final (Aula 23)
-
-- [ ] Os dois rascunhos
-- [ ] `justificativa-metricas.md` completo
 
 ## Modelo de `justificativa-metricas.md`
 
