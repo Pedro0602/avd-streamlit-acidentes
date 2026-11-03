@@ -43,7 +43,7 @@ Ao longo da sessão, pedi para:
   - o público-alvo exibido no Dashboard 2 usa o mesmo texto da minha justificativa das métricas;.
 - **Rejeitado:**
   - trechos em que o Claude Code interpretava os dados por mim, como a explicação da queda de acidentes após 2015 e a justificativa dos gráficos. Foram removidos, e a `justificativa-metricas.md` voltou a ser a minha versão;
-  - o rascunho do Dashboard 2 redesenhado pelo Claude Code: voltei ao meu original;
+  
   - colocar o Claude como coautor dos commits.
 
 ## Validação
