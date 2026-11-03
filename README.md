@@ -1,5 +1,6 @@
 # 🚗 Acidentes em rodovias federais — Dashboards em Streamlit
 
+**Link do app (Aula 23):** https://avd-acidentes-rodovias.streamlit.app
 
 ## O que tem no app
 
