@@ -9,13 +9,13 @@
 
 ## O que foi feito por mim e o que foi feito com IA
 
-**Feito por mim, com apoio do ChatGPT (Aulas 21 e 22):**
+**Feito por mim, com apoio do ChatGPT :**
 - EDA original (`notebooks/eda.ipynb`), sem alterações nesta entrega.
 - Escolha das **5 métricas do Dashboard 2** (acidentes registrados, pessoas envolvidas, óbitos, feridos e % de acidentes com óbito) e o texto de `entregas/justificativa-metricas.md`. O ChatGPT ajudou a redigir a documentação.
 - Primeira versão do `app.py`: sidebar com filtros, duas abas, matriz de correlação, histograma, os 5 KPIs e os gráficos de acidentes por UF e por classificação.
 - `entregas/rascunho-dashboard2.jpg` (rascunho da segunda aba, feito com apoio do ChatGPT), identidade visual (`.streamlit/config.toml`) e o script de download `scripts/preparar_dados.py`.
 
-**Feito pelo Claude Code (Aula 23):**
+**Feito por mim, com apoio do Claude Code :**
 - **Dados:** ajuste do `scripts/preparar_dados.py` e células finais de `notebooks/eda-com-downloads.ipynb`. O texto `(null)` vira ausente, o ano é extraído de `id_unico`, a coluna `feridos` sai (é sempre `feridos_leves + feridos_graves`) e o dado tratado é salvo em Parquet, porque o CSV passa do limite de 100 MB do GitHub.
 - **Código:** `src/data_loader.py` e reescrita do `app.py` para o padrão do repositório-modelo. Dashboard 1 em Altair, com um histograma por variável e opção Pearson/Spearman. Dashboard 2 com seleção cruzada: o clique numa UF filtra os gráficos e os KPIs.
 - **Rascunho do Dashboard 1:** `entregas/rascunho-dashboard1.jpg` foi gerado pelo Claude Code a partir do layout que já existia no app.
