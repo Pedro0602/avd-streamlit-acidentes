@@ -9,7 +9,7 @@
 
 **Feito por mim, com apoio do ChatGPT :**
 - EDA original (`notebooks/eda.ipynb`), sem alterações nesta entrega.
-- Escolha das **5 métricas do Dashboard 2** (acidentes registrados, pessoas envolvidas, óbitos, feridos e % de acidentes com óbito) e o texto de `entregas/justificativa-metricas.md`. O ChatGPT ajudou a redigir a documentação.
+- Escolha das **5 métricas do Dashboard 2** (acidentes registrados, pessoas envolvidas, óbitos, feridos e % de acidentes com óbito) e o texto de `entregas/justificativa-metricas.md`.
 - Primeira versão do `app.py`: sidebar com filtros, duas abas, matriz de correlação, histograma, os 5 KPIs e os gráficos de acidentes por UF e por classificação.
 - `entregas/rascunho-dashboard2.jpg`, identidade visual (`.streamlit/config.toml`) e o script de download `scripts/preparar_dados.py`.
 
