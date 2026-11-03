@@ -24,7 +24,7 @@
 
 ## Prompt usado
 
-**ChatGPT :** pedidos para estruturar o `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma), montar os indicadores, documentar as métricas e fazer o rascunho da segunda aba.
+**ChatGPT :** pedidos para ajuda a revisar as estruturar do `app.py` a partir do layout planejado (sidebar com filtros, correlação e histograma)
 
 **Claude Code :**  (EDA, `app.py` com os dois dashboards, as 5 métricas e a justificativa), pedi ajuda para reorganizar e completar me ensinando passo a passo  do código do app, e para fazer as etapas de publicação.
 
@@ -40,12 +40,10 @@ Ao longo da sessão, pedi para:
   - Dashboard 2 com seleção cruzada em Altair, seguindo o exemplo 3 do `ALTAIR-CROSSFILTER.md`;
   - dado tratado em Parquet, alternativa prevista no README do modelo para arquivos acima de 100 MB.
 - **Modificado:**
-  - o público-alvo exibido no Dashboard 2 usa o mesmo texto da minha justificativa das métricas;
-  - os dois gráficos sugeridos pelo Claude Code foram mantidos para completar os 3 visuais mínimos do Dashboard 2.
+  - o público-alvo exibido no Dashboard 2 usa o mesmo texto da minha justificativa das métricas;.
 - **Rejeitado:**
   - trechos em que o Claude Code interpretava os dados por mim, como a explicação da queda de acidentes após 2015 e a justificativa dos gráficos. Foram removidos, e a `justificativa-metricas.md` voltou a ser a minha versão;
   - o rascunho do Dashboard 2 redesenhado pelo Claude Code: voltei ao meu original;
-  - um template de prompt preenchido pela IA como se eu o tivesse usado: o arquivo voltou ao modelo em branco;
   - colocar o Claude como coautor dos commits.
 
 ## Validação
