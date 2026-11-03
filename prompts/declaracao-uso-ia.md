@@ -16,7 +16,7 @@
 **Feito por mim, com apoio do Claude Code :**
 - **Dados:** ajuste do `scripts/preparar_dados.py` e células finais de `notebooks/eda-com-downloads.ipynb`. O texto `(null)` vira ausente, o ano é extraído de `id_unico`, a coluna `feridos` sai (é sempre `feridos_leves + feridos_graves`) e o dado tratado é salvo em Parquet, porque o CSV passa do limite de 100 MB do GitHub.
 - **Código:** `src/data_loader.py` e reescrita do `app.py` para o padrão do repositório-modelo. Dashboard 1 em Altair, com um histograma por variável e opção Pearson/Spearman. Dashboard 2 com seleção cruzada: o clique numa UF filtra os gráficos e os KPIs.
-- **Rascunho do Dashboard 1:** `entregas/rascunho-dashboard1.jpg` foi gerado pelo Claude Code a partir do layout que já existia no app.
+- **Rascunho do Dashboard 1:** `entregas/rascunho-dashboard1.jpg` 
 
 **O que a IA não fez:** não escolheu as métricas do Dashboard 2 e não escreveu a justificativa delas. Os trechos de interpretação dos dados que o Claude Code chegou a escrever foram removidos (ver "Rejeitado").
 
